@@ -5,7 +5,6 @@ import {
   FaHome, 
   FaTachometerAlt, 
   FaCalendarAlt, 
-  FaUser, 
   FaAngleDoubleLeft, 
   FaAngleDoubleRight 
 } from "react-icons/fa";
@@ -29,16 +28,6 @@ function Navbar({ toggleSidebar, isCollapsed }) {
 
 // Sidebar component – receives collapsed state and toggle function from parent
 function Sidebar({ isCollapsed, toggleSidebar }) {
-  // Manage the open dropdown state locally (for the "Create" dropdown)
-  const [openDropdown, setOpenDropdown] = useState(null);
-
-  const toggleDropdown = (dropdownId) => {
-    // If sidebar is collapsed, expand it first
-    if (isCollapsed) {
-      toggleSidebar();
-    }
-    setOpenDropdown((prev) => (prev === dropdownId ? null : dropdownId));
-  };
 
   return (
     <nav id="sidebar" className={isCollapsed ? "close" : ""}>

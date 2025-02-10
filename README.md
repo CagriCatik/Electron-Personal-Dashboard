@@ -31,26 +31,15 @@
 - **Footer with Useful Links:**  
   A footer component that provides navigation to privacy policies, terms of service, and contact information.
 
-## Demo
-
-![Dashboard Demo](https://via.placeholder.com/800x400?text=Dashboard+Demo)
-
-*(Replace the above image with a screenshot or GIF of your project.)*
-
 ## Getting Started
-
-### Prerequisites
-
-- [Node.js](https://nodejs.org/) (v12 or higher)
-- [npm](https://www.npmjs.com/)
 
 ### Installation
 
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/personal-dashboard.git
-   cd personal-dashboard
+   git clone https://github.com/cagricatik/electron-personal-dashboard.git
+   cd electron-personal-dashboard
    ```
 
 2. **Install dependencies:**
@@ -93,46 +82,3 @@ npm run electron-pack
 ```
 
 *(Make sure you have the appropriate scripts defined in your `package.json` for building the React app and packaging the Electron app.)*
-
-## Project Structure
-
-```
-personal-dashboard/
-├── public/
-│   └── index.html
-├── src/
-│   ├── electron/              # Electron-specific files (e.g., main.js, preload.js)
-│   ├── pages/
-│   │   ├── Home.js            // Home page with hero, features, and about sections
-│   │   ├── Dashboard.js       // Dashboard with interactive charts
-│   │   ├── Calendar.js        // Calendar with event management functionality
-│   │   └── Profile.js         // User profile page
-│   ├── App.js                 // Main application component with routing, navbar, sidebar, and footer
-│   ├── App.css                // Global styles
-│   ├── index.js               // React application entry point
-│   └── ...                    // Other assets and components
-└── package.json
-```
-
-## Dependencies
-
-- **React**  
-- **React Router DOM:** For client-side routing.
-- **React Icons:** For modern iconography.
-- **react-chartjs-2** & **Chart.js:** For rendering interactive charts on the Dashboard.
-- **react-calendar:** For calendar functionality and event management.
-- **Electron:** For building and running the desktop application.
-
-## Customization
-
-- **Styling:**  
-  Modify `App.css` and individual page CSS files (e.g., `src/pages/Home.css`) to adjust the look and feel of your dashboard.
-
-- **Components:**  
-  Each page is modular. Customize the components in the `src/pages` directory to suit your requirements.
-
-- **Data & Functionality:**  
-  Replace the sample data and functions (e.g., event management in Calendar) with your own logic to integrate dynamic data sources or API calls.
-
-- **Electron Integration:**  
-  Customize your Electron main process (e.g., in `src/electron/main.js`) to handle window creation, system tray integration, auto-updates, etc.
