@@ -9,6 +9,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}   # Pass the token to the job environment
 
     steps:
       - name: Checkout repository
@@ -22,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # Uncomment the following step if you want to run tests
+      # Uncomment if you want to run tests
       # - name: Run tests
       #   run: npm run test --if-present
 

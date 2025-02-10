@@ -1,9 +1,8 @@
 // main.js
-const { app, BrowserWindow, Menu } = require('electron');
+const { app, BrowserWindow, Menu, ipcMain, dialog } = require('electron');
 const path = require('path');
 
-const { ipcMain, dialog } = require('electron');
-
+// Listen for IPC events (example: open-folder-dialog)
 ipcMain.on('open-folder-dialog', async (event) => {
   const result = await dialog.showOpenDialog({
     properties: ['openDirectory'],
@@ -21,7 +20,7 @@ function createWindow() {
     width: 1024,
     height: 768,
     webPreferences: {
-      // Note: In production, consider using a preload script for better security
+      // Note: In production, consider using a preload script and enabling contextIsolation for improved security.
       nodeIntegration: true,
       contextIsolation: false,
     },
@@ -109,8 +108,7 @@ app.whenReady().then(() => {
   createWindow();
 
   app.on('activate', () => {
-    // On macOS it’s common to re-create a window when the dock icon is clicked
-    // and there are no other windows open.
+    // On macOS, re-create a window when the dock icon is clicked and no other windows are open.
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
   });
 });
