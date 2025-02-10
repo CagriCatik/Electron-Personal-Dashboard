@@ -19,6 +19,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "test": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject",
     "electron": "cross-env ELECTRON_DEV=1 electron .",
     "electron:prod": "npm run build && electron .",
@@ -52,7 +53,10 @@
   },
   "build": {
     "appId": "com.yourcompany.myreactsidebar",
-    "productName": "My React Sidebar",
+    "productName": "electron-personal-dashboard",
+    "extraMetadata": {
+      "main": "main.js"
+    },
     "directories": {
       "buildResources": "assets",
       "output": "release-builds"
