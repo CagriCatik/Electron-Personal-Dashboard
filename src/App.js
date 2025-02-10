@@ -7,6 +7,7 @@ import {
   NavLink,
 } from "react-router-dom";
 
+import { FaGithub } from 'react-icons/fa'; // Import GitHub icon
 import {
   FaHome,
   FaTachometerAlt,
@@ -153,13 +154,15 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer-links">
-        <NavLink to="/privacy">Privacy Policy</NavLink>
-        <NavLink to="/terms">Terms of Service</NavLink>
-        <NavLink to="/contact">Contact Us</NavLink>
+        <a
+          href="https://github.com/cagricatik/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="footer-link"
+        >
+          <FaGithub size={20} style={{ marginRight: '8px' }} /> GitHub
+        </a>
       </div>
-      <p>
-        &copy; {new Date().getFullYear()} Your Company. All rights reserved.
-      </p>
     </footer>
   );
 }

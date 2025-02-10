@@ -52,7 +52,9 @@ body, html, #root, .App {
 .navbar-title {
   margin: 0;
   font-size: 1.5em;
+  color: #ffffff; /* Example: Bootstrap primary blue */
 }
+
 
 /* Search Form Styles */
 .search-form {
