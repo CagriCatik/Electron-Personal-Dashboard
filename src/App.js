@@ -6,6 +6,7 @@ import {
   Route,
   NavLink,
 } from "react-router-dom";
+
 import {
   FaHome,
   FaTachometerAlt,
@@ -17,21 +18,48 @@ import {
   FaCog,
   FaAngleDoubleRight,
   FaAngleDoubleLeft,
+  FaSearch,
 } from "react-icons/fa";
+
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Calendar from "./pages/Calendar";
-import Tasks from "./pages/Tasks";  // Ensure this file exists
-import "./App.css";
+import Tasks from "./pages/Tasks";
+import Management from "./pages/Management"; 
+import "./styles/App.css";
 
-// Top navigation bar
+// Top navigation bar with integrated search bar
 function Navbar({ toggleSidebar, isCollapsed }) {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    // Replace this with your search functionality or routing logic
+    console.log("Searching for:", searchQuery);
+  };
+
   return (
     <div className="navbar">
       <button className="sidebar-toggle" onClick={toggleSidebar}>
         {isCollapsed ? <FaAngleDoubleRight /> : <FaAngleDoubleLeft />}
       </button>
       <h1 className="navbar-title">Dashboard</h1>
+      {/* Search Bar */}
+      <form onSubmit={handleSearchSubmit} className="search-form">
+        <input
+          type="text"
+          placeholder="Search..."
+          value={searchQuery}
+          onChange={handleSearchChange}
+        />
+        <button type="submit">
+          <FaSearch />
+        </button>
+      </form>
     </div>
   );
 }
@@ -90,7 +118,7 @@ function Sidebar({ isCollapsed, toggleSidebar }) {
         </li>
         <li>
           <NavLink
-            to="/users"
+            to="/management"
             className={({ isActive }) => (isActive ? "active" : "")}
           >
             <FaUsers className="icon" />
@@ -154,6 +182,7 @@ function App() {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/calendar" element={<Calendar />} />
               <Route path="/tasks" element={<Tasks />} />
+              <Route path="/management" element={<Management />} />
               {/* Dummy routes for footer links */}
               <Route
                 path="/privacy"

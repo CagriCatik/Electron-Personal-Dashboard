@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css"; // Import default calendar styles
-import "../CalendarPage.css"; // Import our custom styles
+import "../styles/Calendar.css"; // Custom calendar styles
 
 // Helper function to check if two dates are the same (ignoring time)
 function isSameDay(date1, date2) {
@@ -17,13 +17,8 @@ function CalendarPage() {
   // State for the selected date
   const [date, setDate] = useState(new Date());
   
-  // State for the events array (initial events as sample data)
-  const [events, setEvents] = useState([
-    { date: new Date(2023, 1, 14), title: "Team Meeting", description: "Discuss project updates at 10 AM" },
-    { date: new Date(2023, 1, 15), title: "Doctor Appointment", description: "Visit Dr. Smith at 2 PM" },
-    { date: new Date(2023, 1, 15), title: "Lunch with Alex", description: "At local restaurant at 12:30 PM" },
-    { date: new Date(2023, 1, 16), title: "Project Deadline", description: "Submit final report" }
-  ]);
+  // State for the events array (initially empty)
+  const [events, setEvents] = useState([]);
   
   // State for the new event form
   const [newEventTitle, setNewEventTitle] = useState("");
@@ -105,4 +100,4 @@ function CalendarPage() {
   );
 }
 
-export default CalendarPage;
+export default CalendarPage

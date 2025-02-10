@@ -1,7 +1,7 @@
 // src/pages/Tasks.js
 import React, { useState } from 'react';
 import { FaCheck, FaTrash, FaPlus } from 'react-icons/fa';
-import '../Tasks.css';  // Optional: Add custom styles for the component
+import "../styles/Tasks.css"; // Import custom styles
 
 function Tasks() {
   const [tasks, setTasks] = useState([]);

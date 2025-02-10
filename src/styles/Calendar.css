@@ -1,4 +1,4 @@
-/* src/CalendarPage.css */
+/* src/pages/styles/Calendar.css */
 
 :root {
     --base-color: #1d1b31;
@@ -9,10 +9,10 @@
   /* Container for the whole Calendar page */
   .calendar-page {
     padding: 1em;
-    max-width: 900px;
+    max-width: 800px;
     margin: 2em auto;
     background: #f9f9f9;
-    border-radius: 8px;
+    border-radius: 4px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
   
@@ -25,7 +25,7 @@
   .calendar-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 1em;
+    margin-bottom: 2em;
   }
   
   /* Styling for the event form */
@@ -64,7 +64,7 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.2s ease;
   }
   
   .event-form button:hover {
