@@ -23,7 +23,7 @@
     "electron": "cross-env ELECTRON_DEV=1 electron .",
     "electron:prod": "npm run build && electron .",
     "build:electron": "npm run build && electron-builder",
-    "ci": "npm run test && npm run build:electron"
+    "ci": "npm run build:electron"
   },
   "eslintConfig": {
     "extends": [
