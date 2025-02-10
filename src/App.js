@@ -1,16 +1,27 @@
 // src/App.js
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-dom";
-import { 
-  FaHome, 
-  FaTachometerAlt, 
-  FaCalendarAlt, 
-  FaAngleDoubleLeft, 
-  FaAngleDoubleRight 
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  NavLink,
+} from "react-router-dom";
+import {
+  FaHome,
+  FaTachometerAlt,
+  FaCalendarAlt,
+  FaTasks,
+  FaChartLine,
+  FaUsers,
+  FaBell,
+  FaCog,
+  FaAngleDoubleRight,
+  FaAngleDoubleLeft,
 } from "react-icons/fa";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Calendar from "./pages/Calendar";
+import Tasks from "./pages/Tasks";  // Ensure this file exists
 import "./App.css";
 
 // Top navigation bar
@@ -21,37 +32,89 @@ function Navbar({ toggleSidebar, isCollapsed }) {
         {isCollapsed ? <FaAngleDoubleRight /> : <FaAngleDoubleLeft />}
       </button>
       <h1 className="navbar-title">Dashboard</h1>
-      {/* Add other navbar items (e.g. user profile) if needed */}
     </div>
   );
 }
 
 // Sidebar component – receives collapsed state and toggle function from parent
 function Sidebar({ isCollapsed, toggleSidebar }) {
-
   return (
     <nav id="sidebar" className={isCollapsed ? "close" : ""}>
       <ul>
         {/* Navigation Links */}
         <li>
-          <NavLink to="/" end className={({ isActive }) => (isActive ? "active" : "")}>
+          <NavLink
+            to="/"
+            end
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
             <FaHome className="icon" />
             <span>Home</span>
           </NavLink>
         </li>
         <li>
-          <NavLink to="/dashboard" className={({ isActive }) => (isActive ? "active" : "")}>
+          <NavLink
+            to="/dashboard"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
             <FaTachometerAlt className="icon" />
             <span>Dashboard</span>
           </NavLink>
         </li>
         <li>
-          <NavLink to="/calendar" className={({ isActive }) => (isActive ? "active" : "")}>
+          <NavLink
+            to="/calendar"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
             <FaCalendarAlt className="icon" />
             <span>Calendar</span>
           </NavLink>
         </li>
-
+        <li>
+          <NavLink
+            to="/tasks"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            <FaTasks className="icon" />
+            <span>Tasks</span>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/analytics"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            <FaChartLine className="icon" />
+            <span>Analytics</span>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/users"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            <FaUsers className="icon" />
+            <span>Management</span>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/notifications"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            <FaBell className="icon" />
+            <span>Notifications</span>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/settings"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            <FaCog className="icon" />
+            <span>Settings</span>
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );
@@ -66,7 +129,9 @@ function Footer() {
         <NavLink to="/terms">Terms of Service</NavLink>
         <NavLink to="/contact">Contact Us</NavLink>
       </div>
-      <p>&copy; {new Date().getFullYear()} Your Company. All rights reserved.</p>
+      <p>
+        &copy; {new Date().getFullYear()} Your Company. All rights reserved.
+      </p>
     </footer>
   );
 }
@@ -88,10 +153,35 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/calendar" element={<Calendar />} />
+              <Route path="/tasks" element={<Tasks />} />
               {/* Dummy routes for footer links */}
-              <Route path="/privacy" element={<div><h2>Privacy Policy</h2><p>Privacy details here.</p></div>} />
-              <Route path="/terms" element={<div><h2>Terms of Service</h2><p>Terms details here.</p></div>} />
-              <Route path="/contact" element={<div><h2>Contact Us</h2><p>Contact details here.</p></div>} />
+              <Route
+                path="/privacy"
+                element={
+                  <div>
+                    <h2>Privacy Policy</h2>
+                    <p>Privacy details here.</p>
+                  </div>
+                }
+              />
+              <Route
+                path="/terms"
+                element={
+                  <div>
+                    <h2>Terms of Service</h2>
+                    <p>Terms details here.</p>
+                  </div>
+                }
+              />
+              <Route
+                path="/contact"
+                element={
+                  <div>
+                    <h2>Contact Us</h2>
+                    <p>Contact details here.</p>
+                  </div>
+                }
+              />
             </Routes>
           </main>
         </div>
